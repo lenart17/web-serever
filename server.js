@@ -2,17 +2,7 @@ var express = require('express');
 var PORT = 3000;		// when a variable name in js is capitalized it is saying not to be changed
 
 var app = express();
-// middleware
-var middleware = {
-	requireAuthentication: function (req, res, next){
-		console.log('private route hit');
-		next();
-	},
-	logger: function(req, res, next){
-		console.log('Request: '+ new Date().toString()+ ' ' + req.method + ' ' + req.originalUrl);
-		next();
-	}
-};
+var middleware = require('./middleware.js');
 
 //app.use - application level middleware
 app.use(middleware.logger);

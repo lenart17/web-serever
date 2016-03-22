@@ -23,7 +23,7 @@ app.use(middleware.logger);
 //res - data to send back
 //to use route middleware use as the second paramter
 app.get('/about', middleware.requireAuthentication , function(req, res){
-	res.send("All About Us");
+	res.send("All About Us!");
 });
 
 //alllow access to a folder

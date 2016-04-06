@@ -1,5 +1,8 @@
 var express = require('express');
-var PORT = 3000;		// when a variable name in js is capitalized it is saying not to be changed
+
+//var PORT = 3000;		// when a variable name in js is capitalized it is saying not to be changed
+//use heroku port
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 var middleware = require('./middleware.js');

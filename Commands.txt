@@ -1,0 +1,113 @@
+
+TERMINAL
+
+More ~/.ssh/id_rsa.pub     - prints contents of file
+
+
+NODE
+1) CTRL C 
+	- stops node server
+2) node server.js
+	-starts node with app
+
+
+
+
+GIT
+
+After Install of Git
+
+1) restart terminal
+2) setup config variables
+	a) git config --global user.name "Marc Lenart"
+	b) git config --global user.email "mlenart@me.com"
+	c) git config --global push.default matching
+	d) git config --global alias.co checkout
+3) Adding project under git
+	a) navigate to server directory
+	b) add version control
+		i) git init - initialize new repository
+		ii) git status  - see which code hasn't been saved
+		iii) git add .  - tellsgit to add files to repository
+		iV) git rm --cached -r node_modules - removes modules from being saved
+		v) create new file under server .gitignore
+			1) node_modules/ - tells git to what to ignore
+		VI) git add .  - tells git to save any files in cache
+		VII) git commit -a -m  "initialize" - commits files in git staged - " " describes changes made
+4) git diff
+	- shows the lines that changed in the files
+5) git commit -am "description of changes"
+
+
+Heroku and GitHub
+
+1) making an SSH key - 
+	a) check to see if there is already an SSH file
+		i) ls -al ~/.ssh  - if there is no id_rsa file then there is no SSH key
+		ii) ssh-keygen -t rsa -b 4096 -C "mlenart@me.com" - generates public and private key
+		iii) leave passphrase blank 
+
+2) signup for GitHub
+	a) go to GitHub.com
+	b) login
+	c) go to profile settings
+	d) select SSH key
+	e) select add SSH key
+	f) More ~/.ssh/id_rsa.pub     - prints contents of file then copy key to ssh field in github
+	g) create repository
+	h) git remote add origin https://github.com/lenart17/web-serever.git
+		- adds our remote git repository 
+	i) git remote   - sees if it worked
+	j) git remote -v
+		- gets the remote urls for getting and pushing
+	j) git push -u origin master   
+		- requesting userid and pw means there was something wrong with ssh key
+
+
+HEROKU
+1) signup for Heroku
+2) add SSH key (see above from git)
+3) install Heroku Toolbelt http://toolbelt.heroku.com
+4) run from command line
+$ heroku login
+	Enter your Heroku credentials.
+	Email: adam@example.com
+	Password (typing will be hidden):
+	Authentication successful.
+5) heroku --version  
+	-tells what version of toolbelt
+6) heroku apps
+	- lists your apps on heroku
+7) deploy to Heroku
+	a) go to root of app
+	b) heroku app
+		- creates an heroku app
+	c) heroku open
+		-opens the app
+	d) - push app to heroku
+
+		1) git remote -v
+		heroku	https://git.heroku.com/gentle-cove-84170.git (fetch)
+		heroku	https://git.heroku.com/gentle-cove-84170.git (push)
+		origin	https://github.com/lenart17/web-serever.git (fetch)
+		origin	https://github.com/lenart17/web-serever.git (push)
+		2) change port in server.js becuase heroku stores port in a variable
+			var PORT = process.env.PORT || 3000;
+		3) git push heroku master
+			- parameters match from 1 above
+			- launches app in browser
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
